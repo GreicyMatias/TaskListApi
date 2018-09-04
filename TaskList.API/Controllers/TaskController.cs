@@ -41,28 +41,12 @@ namespace TaskList.API.Controllers
                 return BadRequest();
             }
         }
-
-        // PUT: api/Task/5
-        public IHttpActionResult PutStatus([FromBody]TaskModel model)
-        {
-            try
-            {
-                service.UpdateStatus(model);
-
-                return Ok();
-            }
-            catch (Exception)
-            {
-                // coloca m log com o erro especifico
-                return BadRequest();
-            }
-        }
-
+        
         public IHttpActionResult Put([FromBody]TaskModel model)
         {
             try
             {
-                service.UpdateStatus(model);
+                service.Update(model);
 
                 return Ok();
             }

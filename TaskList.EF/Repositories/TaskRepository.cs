@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using TaskList.Domain.Entities;
 using TaskList.EF.Contexts;
@@ -40,6 +41,13 @@ namespace TaskList.EF.Repositories
             Task update = context.Tasks.First(x => x.Id == task.Id);
             update.Status = task.Status;
             
+            context.SaveChanges();
+        }
+
+        public void Update(Task task)
+        {
+            context.Entry(task).State = EntityState.Modified;
+
             context.SaveChanges();
         }
     }

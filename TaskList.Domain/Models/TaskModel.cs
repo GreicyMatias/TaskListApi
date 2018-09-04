@@ -11,6 +11,6 @@ namespace TaskList.Domain.Models
 
         public String Description { get; set; }
 
-        //public TaskStatus? Status { get; set; }
+        public TaskStatus Status { get; set; }
     }
 }

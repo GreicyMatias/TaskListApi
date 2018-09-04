@@ -24,7 +24,7 @@ namespace TaskList.Domain.Entities
 
         public void AddEvent(TaskStatus status)
         {
-            //TODO: adicionar o evento na lista
+            Events.Add(new TaskEvent(DateTime.Now, status));
 
             Status = status;
         }

@@ -40,14 +40,16 @@ namespace TaskList.Application.Services
 
             return taskModel;
         }
-
-        public void UpdateStatus(TaskModel model)
+        
+        public void Update(TaskModel model)
         {
             var dbTask = repository.Get(model.Id);
 
-            //dbTask.AddEvent(model.Status.Value);
-            
-            repository.UpdateStatus(dbTask);
+            dbTask.Description = model.Description;
+            dbTask.Name = model.Name;
+            dbTask.AddEvent(model.Status);
+
+            repository.Update(dbTask);
         }
     }
 }
